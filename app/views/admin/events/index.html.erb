@@ -1,0 +1,21 @@
+<h1>All Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Event Name</th>
+      <th>Live?</th>
+      <th>Password</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render :partial => @events %>
+  </tbody>
+  
+</table>
+
+<%= link_to 'New Event', new_admin_event_url %>
+

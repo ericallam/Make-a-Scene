@@ -1,0 +1,9 @@
+<h1><%= @event.name %></h1>
+
+<% @event.photos.each do |photo| %>
+
+  <div>
+    <%= image_tag photo.image.url(:medium) %>
+  </div>
+  
+<% end %>
