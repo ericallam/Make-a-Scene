@@ -1,6 +1,10 @@
 Makeascene::Application.routes.draw do |map|
 
   
+  get "photos/index"
+
+  get "photos/destroy"
+
   get "events/show"
 
   devise_for :admin, :controllers => { :sessions => "admin/sessions" }
@@ -8,6 +12,7 @@ Makeascene::Application.routes.draw do |map|
   namespace :admin do
     resources :events do
       resources :photo_uploads
+      resources :photos
     end
   end
   

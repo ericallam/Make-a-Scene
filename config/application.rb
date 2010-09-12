@@ -9,7 +9,6 @@ Bundler.require(:default, Rails.env) if defined?(Bundler)
 module Makeascene
   class Application < Rails::Application
     config.generators do |g|
-      g.template_engine :haml
       g.fixture_replacement :factory_girl, :dir => "test/factories"
     end
     
