@@ -31,6 +31,10 @@ GEM
     addressable (2.2.1)
     arel (1.0.1)
       activesupport (~> 3.0.0)
+    aws-s3 (0.6.2)
+      builder
+      mime-types
+      xml-simple
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
     devise (1.1.rc2)
@@ -50,6 +54,7 @@ GEM
     hashie (0.4.0)
     i18n (0.4.1)
     json (1.4.6)
+    koala (0.8.0)
     mail (2.2.6)
       activesupport (>= 2.3.6)
       mime-types
@@ -97,21 +102,25 @@ GEM
     tzinfo (0.3.23)
     warden (0.10.7)
       rack (>= 1.0.0)
+    xml-simple (1.0.12)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  aws-s3
   devise (= 1.1.rc2)
   factory_girl
   fbgraph
   json
+  koala
   oauth2
   paginate
   paperclip
   permalink_fu
   pg
   rails (= 3.0.0)
+  rest-client
   rmagick
   rubyzip
   shoulda

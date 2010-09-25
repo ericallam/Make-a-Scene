@@ -17,7 +17,9 @@ gem 'simple_form'
 gem 'rubyzip', :require => 'zip/zip'
 gem 'rmagick'
 gem 'permalink_fu'
-
+gem 'koala'
+gem 'rest-client'
+gem 'aws-s3'
 
 group :test do
   gem 'factory_girl'

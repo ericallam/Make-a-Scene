@@ -8,9 +8,25 @@
 </head>
 <body>
   
-  <header>
+  <!--header>
     <fb:login-button perms='publish_stream,user_photos'></fb:login-button>
-  </header>
+  </header-->
+
+  <div id="header-fixed">
+    <div id="header-inside">
+      <div id="header-container" class="container_16">
+	<img src="/images/logo.png" alt="Make A Scene" id="logo" />
+	<div id="menu">
+          <img src="/images/menu_about.png" alt="About Make a Scene" />
+          <img src="/images/menu_galleries.png" alt="Galleries" />
+          <img src="/images/menu_contact.png" alt="Contact Us" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="header-shade"><img src="/images/top_shade.png" alt="" /></div>
+  
   
   <% if notice.present? %>
     <p class="notice"><%= notice %></p>
@@ -20,17 +36,28 @@
     <p class="alert"><%= alert %></p>
   <% end %>
 
-<%= yield %>
+  <div id="content-container">
+    <div id="content" class="container_16">
+      <%= yield %>
+    </div>
+  </div>
+
+
+<div id="footer-fixed"></div>
 
 <div id="fb-root"></div>
 <script src="http://connect.facebook.net/en_US/all.js"></script>
 <script>
-  FB.init({appId: '120893377958437', status: true, cookie: true, xfbml: true});
+  FB.init({appId: '125288907521593', status: true, cookie: true, xfbml: true});
   FB.Event.subscribe('auth.sessionChange', function(response) {
     if (response.session) {
+      console.log('logged in');
+      console.log(response);
       // A user has logged in, and a new cookie has been saved
     } else {
       // The user has logged out, and the cookie has been cleared
+      console.log('failed login');
+      console.log(response);
     }
   });
 </script>

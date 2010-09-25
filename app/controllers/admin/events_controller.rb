@@ -5,6 +5,7 @@ class Admin::EventsController < Admin::BaseController
   before_filter :load_event, :only => [:edit, :update, :destroy, :show]
   
   def index
+    puts cookies.inspect
     @events = Event.paginate :per_page => params[:per_page] || 15, :page => params[:page] || 1
     
     respond_with @events
