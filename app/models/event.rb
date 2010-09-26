@@ -1,6 +1,7 @@
 class Event < ActiveRecord::Base
   
   has_many :photos
+  has_many :photo_shares, :through => :photos
   has_many :photo_uploads
   
   has_permalink :name

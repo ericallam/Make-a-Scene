@@ -21,7 +21,7 @@ class FacebookUploader
   end
 
   def link
-    if photo_json = @graph.get_object(@photo_data['id'])
+    @link ||= if photo_json = @graph.get_object(@photo_data['id'])
       photo_json['link']
     end
   end

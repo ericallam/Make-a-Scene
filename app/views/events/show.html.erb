@@ -33,6 +33,9 @@
   <%= image_tag @event.photos.first.image.url(:big), 'data-photo-id' => @event.photos.first.id %>
   <div id='action_buttons'>
     <%= link_to 'fb', '#', :id => 'facebook_link' %>
+    <% if @photo_shares && share = @photo_shares.detect {|ps| ps.photo == @event.photos.first } %>
+      <%= link_to 'View on Facebook', share.facebook_photo_url, :target => '_blank' %>
+    <% end %>
   </div>
 </div>
 

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100804003442) do
+ActiveRecord::Schema.define(:version => 20100926173213) do
 
   create_table "admins", :force => true do |t|
     t.string   "email",                             :default => "", :null => false
@@ -38,6 +38,14 @@ ActiveRecord::Schema.define(:version => 20100804003442) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "permalink"
+  end
+
+  create_table "photo_shares", :force => true do |t|
+    t.integer  "photo_id"
+    t.string   "facebook_uid"
+    t.string   "facebook_photo_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "photo_uploads", :force => true do |t|
