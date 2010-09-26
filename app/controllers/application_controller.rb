@@ -4,6 +4,10 @@ class ApplicationController < ActionController::Base
 
   protected
 
+  def current_graph
+    @current_graph ||= Koala::Facebook::GraphAPI.new(session[:user_info]['access_token'])
+  end
+
   def current_facebook_user
     @oauth ||= Koala::Facebook::OAuth.new '125288907521593', 'acfa8935510f478fe417752093336447'
     

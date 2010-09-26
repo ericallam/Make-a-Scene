@@ -92,7 +92,6 @@ GEM
     rake (0.8.7)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    rmagick (2.13.1)
     rubyzip (0.9.4)
     shoulda (2.11.3)
     simple_form (1.2.2)
@@ -121,7 +120,6 @@ DEPENDENCIES
   pg
   rails (= 3.0.0)
   rest-client
-  rmagick
   rubyzip
   shoulda
   simple_form

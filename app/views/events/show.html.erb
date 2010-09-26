@@ -45,10 +45,17 @@
 
 <script>
 
+  var lastRequestData;
+    
   var postPhotoToFacebook = function(){
     var photo_id = $("#main-image img:first").attr('data-photo-id');
     $.post('<%= post_photo_to_facebook_event_url(@event) %>', {'photo_id': photo_id}, function(data){
+      lastRequestData = data;
       console.log('posted photo with data ' + data);
+      if(lastRequestData['link'] !== '' && lastRequestData['link'] !== null){
+        var link_to_photo = $('<a target="_blank">View on Facebook</a>').attr('href', lastRequestData['link']);
+        $('#action_buttons').append(link_to_photo);
+      }
     });
   }
 
@@ -61,7 +68,7 @@
       var image = $('<img></img>').attr('src', image_url).attr('data-photo-id', photo_id).hide();
       var image_container = $('#main-image');
       image_container.find('img').fadeOut('fast', function(){
-        image_container.html(image);
+        image_container.prepend(image);
         image.fadeIn('fast');
       });
     })
@@ -95,7 +102,7 @@
               console.log('user failed to login');
               // user is not logged in
             }
-          }, {perms:'publish_stream'});
+          }, {perms:'publish_stream,user_photos'});
 
 
         }
