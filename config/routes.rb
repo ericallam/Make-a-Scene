@@ -5,8 +5,6 @@ Makeascene::Application.routes.draw do |map|
 
   get "photos/destroy"
 
-  get "events/show"
-
   devise_for :admin, :controllers => { :sessions => "admin/sessions" }
 
   namespace :admin do
@@ -16,7 +14,11 @@ Makeascene::Application.routes.draw do |map|
     end
   end
   
-  resources :events
+  resources :events do
+    member do
+      post :post_photo_to_facebook
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

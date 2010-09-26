@@ -533,3 +533,7 @@ ul.thumbs li img {
 	display: block;
 }
 
+/* Admin Styles */
+#admin {
+  color:white;
+}

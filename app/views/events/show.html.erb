@@ -1,10 +1,106 @@
+<%= content_for(:facebook_js) do %>
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({appId: '125288907521593', status: true, cookie: true, xfbml: true});
+
+      FB.Event.subscribe('auth.sessionChange', function(response) {
+        if (response.session) {
+          console.log('logged in');
+          console.log(response);
+          // A user has logged in, and a new cookie has been saved
+        } else {
+          // The user has logged out, and the cookie has been cleared
+          console.log('failed login');
+          console.log(response);
+        }
+      });
+      
+
+    };
+
+    (function() {
+      var e = document.createElement('script');
+      e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+      e.async = true;
+      document.getElementById('fb-root').appendChild(e);
+    }());
+
+  </script>
+<% end %>
+
 <div id="main-image" class="shadow">
-  <%= image_tag @event.photos.first.image.url(:big) %>
+  <%= image_tag @event.photos.first.image.url(:big), 'data-photo-id' => @event.photos.first.id %>
+  <div id='action_buttons'>
+    <%= link_to 'fb', '#', :id => 'facebook_link' %>
+  </div>
 </div>
 
 <ul class="thumbs">
   <% @event.photos.each do |photo| %>
-    <li><%= link_to image_tag(photo.image.url(:small), :class => 'shadow'), '#', :class => 'image_link' %></li>
+    <li><%= link_to image_tag(photo.image.url(:small), :class => 'shadow'), '#', :class => 'image_link', 'data-image-url' => photo.image.url(:big), 'data-photo-id' => photo.id %></li>
   <% end %>
 </ul>
 <div class="clear"></div>
+
+<script>
+
+  var postPhotoToFacebook = function(){
+    var photo_id = $("#main-image img:first").attr('data-photo-id');
+    $.post('<%= post_photo_to_facebook_event_url(@event) %>', {'photo_id': photo_id}, function(data){
+      console.log('posted photo with data ' + data);
+    });
+  }
+
+  $(document).ready(function(){
+    $('.image_link').click(function(e){
+      e.preventDefault(); 
+      var link = $(this);
+      var image_url = link.attr('data-image-url');
+      var photo_id = link.attr('data-photo-id');
+      var image = $('<img></img>').attr('src', image_url).attr('data-photo-id', photo_id).hide();
+      var image_container = $('#main-image');
+      image_container.find('img').fadeOut('fast', function(){
+        image_container.html(image);
+        image.fadeIn('fast');
+      });
+    })
+
+    $('#facebook_link').click(function(e){
+      e.preventDefault();
+      FB.getLoginStatus(function(response) {
+        if (response.session) {
+          // logged in and connected user, someone you know
+          console.log('already logged in');
+          console.log(response.session);
+          postPhotoToFacebook();
+        } else {
+          // no user session available, someone you dont know
+          console.log('not yet logged in');
+          FB.login(function(response) {
+            if (response.session) {
+              console.log('logged in with session');
+              console.log(response.session);
+              if (response.perms) {
+                console.log('and perms');
+                console.log(response.perms);
+                // user is logged in and granted some permissions.
+                // perms is a comma separated list of granted permissions
+                postPhotoToFacebook();
+                } else {
+                console.log('no perms');
+                // user is logged in, but did not grant any permissions
+              }
+            } else {
+              console.log('user failed to login');
+              // user is not logged in
+            }
+          }, {perms:'publish_stream'});
+
+
+        }
+      });
+      
+    })
+  });
+</script>
