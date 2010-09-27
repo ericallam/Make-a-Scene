@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_filter :find_event
   
   def show
-    if current_facebook_user['uid']
+    if current_facebook_user and current_facebook_user['uid']
       @photo_shares = @event.photo_shares.where('facebook_uid' => current_facebook_user['uid'])
     end
   end
