@@ -85,13 +85,25 @@ a {
 
 ul.thumbs {
 	margin:0;
-	padding:0 0 0 400px;
 	list-style-type:none;
+}
+
+ul.four_column {
+  padding:0 0 0 400px;
+}
+
+ul.three_column {
+  padding: 0 0 0 571px;
+}
+
+ul.two_column {
+  padding: 0 0 0 700px;
 }
 
 ul.thumbs li {
 	display:inline-block;
 	margin:0 20px 15px 0;
+        vertical-align: top;
 }
 
 ul.thumbs li img {
@@ -537,3 +549,4 @@ ul.thumbs li img {
 #admin {
   color:white;
 }
+
