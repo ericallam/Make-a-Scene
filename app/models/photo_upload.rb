@@ -1,8 +1,8 @@
 class PhotoUpload < ActiveRecord::Base
-  
+
   belongs_to :event
   
-  has_attached_file :archive
+  has_attached_file :archive, :path => ":rails_root/tmp/:id-:basename.:extension"
   
   after_create :unzip_archive_and_create_photos
   
