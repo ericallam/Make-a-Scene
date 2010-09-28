@@ -9,6 +9,9 @@ Makeascene::Application.routes.draw do |map|
 
   namespace :admin do
     resources :events do
+      member do
+        get :preview
+      end
       resources :photo_uploads
       resources :photos
     end
@@ -17,6 +20,8 @@ Makeascene::Application.routes.draw do |map|
   resources :events do
     member do
       post :post_photo_to_facebook
+      get :authenticate
+      post :attempt_authorize
     end
   end
 

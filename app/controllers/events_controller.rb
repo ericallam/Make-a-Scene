@@ -1,6 +1,7 @@
 class EventsController < ApplicationController
   
   before_filter :find_event
+  before_filter :authorize_event, :except => [:authenticate, :attempt_authorize]
   
   def show
     if current_facebook_user and current_facebook_user['uid']
@@ -19,11 +20,35 @@ class EventsController < ApplicationController
       render :json => {:success => false}
     end
   end
+
+  def authenticate
+    
+  end
+
+  def attempt_authorize
+    session[:authorized_events] ||= {}
+    session[:authorized_events][@event.id] = params[:password]
+
+    redirect_to event_path(@event)
+  end
   
   private
   
   def find_event
-    @event = Event.find_by_param params[:id]
+    @event = Event.live.find_by_param params[:id]
+  end
+
+  def authorize_event
+    if @event.private?
+      authorized_events = session[:authorized_events] || {}
+      if authorized_password = authorized_events[@event.id]
+        if authorized_password != @event.password
+          redirect_to authenticate_event_path(@event), :error => 'Sorry, you entered the wrong password.  Please try again.'
+        end
+      else
+        redirect_to authenticate_event_path(@event), :error => 'You must enter the secret password to view this album'
+      end
+    end
   end
 
 end

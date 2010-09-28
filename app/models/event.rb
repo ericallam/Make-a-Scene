@@ -3,6 +3,8 @@ class Event < ActiveRecord::Base
   has_many :photos
   has_many :photo_shares, :through => :photos
   has_many :photo_uploads
+
+  scope :live, where(:live => true)
   
   has_permalink :name
   
@@ -13,7 +15,7 @@ class Event < ActiveRecord::Base
   end
   
   def self.find_by_param(param)
-    find_by_permalink param
+    find_by_permalink(param) or raise(ActiveRecord::RecordNotFound)
   end
   
   def to_param

@@ -1,0 +1,7 @@
+<div>
+  <h3> Enter Password </h3>
+
+  <%= form_tag attempt_authorize_event_path(@event), :method => :post do %>
+    <%= password_field_tag 'password',  '' %>
+  <% end %>
+</div>

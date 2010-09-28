@@ -2,7 +2,7 @@ class Admin::EventsController < Admin::BaseController
   
   respond_to :html
   
-  before_filter :load_event, :only => [:edit, :update, :destroy, :show]
+  before_filter :load_event, :only => [:edit, :update, :destroy, :show, :preview]
   
   def index
     puts cookies.inspect
@@ -13,6 +13,10 @@ class Admin::EventsController < Admin::BaseController
   
   def show
     respond_with @event
+  end
+
+  def preview
+    render :template => '/events/show'
   end
 
   def new
