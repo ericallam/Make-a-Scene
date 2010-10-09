@@ -37,9 +37,6 @@ GEM
       xml-simple
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
-    daemons (1.1.0)
-    delayed_job (2.0.3)
-      daemons
     devise (1.1.rc2)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 0.10.7)
@@ -112,7 +109,6 @@ PLATFORMS
 
 DEPENDENCIES
   aws-s3
-  delayed_job
   devise (= 1.1.rc2)
   factory_girl
   fbgraph
