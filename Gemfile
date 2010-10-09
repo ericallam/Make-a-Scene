@@ -20,6 +20,7 @@ gem 'rmagick'
 gem 'koala'
 gem 'rest-client'
 gem 'aws-s3'
+gem 'delayed_job'
 
 group :test do
   gem 'factory_girl'
