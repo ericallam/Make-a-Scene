@@ -3,7 +3,3 @@ Factory.define :event do |e|
   e.live true
 end
 
-Factory.define :admin do |a|
-  a.sequence(:email) {|n| "hello#{n}@makeascene.tv" }
-  a.password 'letmein'
-end
