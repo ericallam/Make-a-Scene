@@ -1,0 +1,9 @@
+# Typus Roles Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+admin:
+  Event: create, read, update, delete, preview
+  Photo: create, read, update, delete
+  PhotoShare: create, read, update, delete
+  PhotoUpload: create, read, update, delete

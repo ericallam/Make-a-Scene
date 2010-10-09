@@ -1,7 +1,0 @@
-<h1>Upload Photo's for <%= @event.name %></h1>
-
-<%= form_for @photo_upload, :url => admin_event_photo_uploads_url(@event), :html => {:multipart => true} do |f| %>
-  <%= f.file_field :archive %>
-  
-  <%= f.submit 'Submit' %>
-<% end %>

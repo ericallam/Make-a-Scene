@@ -1,0 +1,46 @@
+# Typus Models Configuration File
+#
+# Use the README file as a reference to customize settings.
+
+Event:
+  fields:
+    default: name, private, live, permalink, password
+    form: name, private, live, permalink
+  order_by: 
+  relationships: photo_shares, photo_uploads, photos
+  filters: 
+  search: name
+  application: makeascene
+  actions:
+    edit: preview
+
+Photo:
+  fields:
+    default: event, image
+    form: event, image
+  order_by: 
+  relationships: event, photo_shares
+  filters: 
+  search: 
+  application: makeascene
+
+PhotoShare:
+  fields:
+    default: photo, facebook_uid, facebook_photo_url
+    form: photo, facebook_uid, facebook_photo_url
+  order_by: 
+  relationships: photo
+  filters: 
+  search: 
+  application: makeascene
+
+PhotoUpload:
+  fields:
+    default: event_id, archive_file_name, event
+    form: event, archive, event
+  order_by: 
+  relationships: event
+  filters: 
+  search: 
+  application: makeascene
+
