@@ -3,7 +3,7 @@
 # Use the README file as a reference to customize settings.
 
 admin:
-  Event: create, read, update, delete, preview
+  Event: create, read, update, delete, preview, view_public
   Photo: create, read, update, delete
   PhotoShare: create, read, update, delete
   PhotoUpload: create, read, update, delete

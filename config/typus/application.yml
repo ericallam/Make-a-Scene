@@ -12,7 +12,7 @@ Event:
   search: name
   application: makeascene
   actions:
-    edit: preview
+    edit: preview, view_public
 
 Photo:
   fields:

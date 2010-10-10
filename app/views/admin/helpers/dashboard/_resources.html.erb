@@ -1,0 +1,20 @@
+<% if resources.any? %>
+
+  <table>
+
+    <thead>
+      <tr>
+        <th colspan="2"><%= _t("Resources") %></th>
+      </tr>
+    </thead>
+
+    <% resources.each do |resource| %>
+      <tr class="<%= cycle("even", "odd") %>">
+      <td><%= link_to _t(resource.titleize.capitalize), :controller => "admin/#{resource.underscore}" %></td>
+      <td align="right" style="vertical-align: bottom;"></td>
+      </tr>
+    <% end %>
+
+  </table>
+
+<% end %>

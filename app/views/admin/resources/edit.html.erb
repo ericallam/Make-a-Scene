@@ -1,0 +1,27 @@
+<%
+  page_title = _t("Edit %{resource}", :resource => @resource.model_name.human)
+  title(page_title)
+%>
+
+<% content_for :sidebar, build_sidebar %>
+
+<h2>
+  <%= page_title %>
+</h2>
+
+<%= display_link_to_previous %>
+<%= display_flash_message %>
+<%= typus_render :partial => 'edit' %>
+
+<%
+  options = { :action => "update",
+              :id => @item.id ,
+              :back_to => params[:back_to],
+              :resource => params[:resource],
+              :resource_id => params[:resource_id] }
+  button = _t("Save %{resource}", :resource => @resource.model_name.human)
+%>
+
+<%= typus_render :partial => 'form', :options => options, :button => button %>
+
+<%= raw typus_relationships %>

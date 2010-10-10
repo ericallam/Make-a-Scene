@@ -1,0 +1,8 @@
+<ul>
+  <% dashboard = 'active' if params[:controller].include?('dashboard') %>
+  <li><%= link_to _t("Dashboard"), admin_dashboard_path, :class => dashboard %></li>
+  <% @current_user.applications.each do |app| %>
+    <% klass = (@resource && Typus.application(app).include?(@resource.name)) ? 'active' : nil %>
+    <li><%= link_to _t(app), { :controller => Typus.application(app).sort {|a,b| a.constantize.model_name.human <=> b.constantize.model_name.human}.first.tableize }, { :class => klass } %></li>
+  <% end %>
+</ul>

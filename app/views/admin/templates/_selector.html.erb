@@ -1,0 +1,8 @@
+<%
+  values = @resource::const_get(attribute.upcase)
+%>
+
+<li>
+  <%= form.label attribute, label_text %>
+  <%= form.select attribute, values, options.merge!(:include_blank => false) %>
+</li>
