@@ -30,12 +30,17 @@
 <% end %>
 
 <div id="main-image" class="shadow">
+  <div id="main-image-wrap">
   <%= image_tag @event.photos.first.image.url(:big), 'data-photo-id' => @event.photos.first.id %>
-  <div id='action_buttons'>
-    <%= link_to 'fb', '#', :id => 'facebook_link' %>
-    <% if @photo_shares && share = @photo_shares.detect {|ps| ps.photo == @event.photos.first } %>
-      <%= link_to 'View on Facebook', share.facebook_photo_url, :target => '_blank' %>
-    <% end %>
+  	<div id="fb-add">
+  		<%= link_to image_tag('icon_facebook_add.png', :alt => 'Add this photo to your Facebook'), '#', :id => 'facebook_link' %>
+    	<% if @photo_shares && share = @photo_shares.detect {|ps| ps.photo == @event.photos.first } %>
+        <%= link_to 'View on Facebook', share.facebook_photo_url, :target => '_blank' %>
+    	<% end %>
+    </div>
+  	<div id="fb-container">
+  		Add this photo to your Facebook? &nbsp; <a href="#" class="button">Yes!</a><a href="#" class="button">Nevermind</a>
+  	</div>
   </div>
 </div>
 

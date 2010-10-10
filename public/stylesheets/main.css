@@ -1,13 +1,13 @@
 html,body {
-	background: url(/images/main_bg.gif) repeat;
+	background: url(/images/main_bg.gif) repeat fixed;
 	margin:0;
 	padding:0;
-	height:100%;
 }
 
-a {
+a, img {
     border:none;
     outline:none;
+    text-decoration: none;
 }
 
 #logo {
@@ -48,12 +48,13 @@ a {
 }
 
 #content-container{
-	background: url(/images/content_bg.gif) no-repeat fixed center 75px;
-	margin:75px 0 0 0;
+	padding:75px 0 0 0;
 	width: 100%;
-	height:auto !important; /* real browsers */
-	height:100%; /* IE6: treaded as min-height*/
-	min-height:100%; /* real browsers */
+	/*
+	height:auto !important;
+	height:100%;
+	min-height:100%;
+	*/
 }
 
 #content {
@@ -63,7 +64,58 @@ a {
 #main-image {
 	position: fixed;
 	background-color: #fff;
-	padding:10px;
+	padding:10px 10px 5px 10px;
+}
+
+#main-image-wrap {
+	position: relative;
+	height:100%;
+	width:100%;
+}
+
+#main-image-wrap #fb-add {
+	position:absolute;
+	bottom:5px;
+	left:5px;
+	z-index: 9999;
+}
+
+#main-image-wrap #fb-container {
+	position: absolute;
+	width: 100%;
+	height:20px;
+	bottom:6px;
+	background-color: #000;
+	filter:alpha(opacity=8);
+	-moz-opacity:0.80;
+	-khtml-opacity: 0.8;
+	opacity: 0.8;
+	text-align: center;
+	font:10px Arial;
+	color:#fff;
+	z-index: 9998;
+	padding:8px 0 2px 0;
+}
+
+#main-image-wrap #fb-container a.button {
+/* Fallback for web browsers that doesn't support RGBa */
+	background: rgb(255, 255, 255);
+	/* RGBa with 0.6 opacity */
+	background: rgba(255, 255, 255, 0.05);
+	/* For IE 5.5 - 7*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF, endColorstr=#99FFFFFF);
+	/* For IE 8*/
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FFFFFF, endColorstr=#19FFFFFF)";
+	margin:0 5px 0 0;
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	padding:2px 5px 2px 5px;
+	color:#ffe27f;
+}
+
+
+#main-image-wrap #fb-container a.button:hover {
+	background: rgba(255, 255, 255, 0.1);
 }
 
 #footer-fixed {
@@ -103,7 +155,7 @@ ul.two_column {
 ul.thumbs li {
 	display:inline-block;
 	margin:0 20px 15px 0;
-        vertical-align: top;
+    vertical-align: top;
 }
 
 ul.thumbs li img {
