@@ -31,16 +31,15 @@
 
 <div id="main-image" class="shadow">
   <div id="main-image-wrap">
-  <%= image_tag @event.photos.first.image.url(:big), 'data-photo-id' => @event.photos.first.id %>
-  	<div id="fb-add">
-  		<%= link_to image_tag('icon_facebook_add.png', :alt => 'Add this photo to your Facebook'), '#', :id => 'facebook_link' %>
-    	<% if @photo_shares && share = @photo_shares.detect {|ps| ps.photo == @event.photos.first } %>
-        <%= link_to 'View on Facebook', share.facebook_photo_url, :target => '_blank' %>
-    	<% end %>
+    <%= image_tag @event.photos.first.image.url(:big), 'data-photo-id' => @event.photos.first.id %>
+
+    <div id="fb-add">
+      <%= link_to image_tag('icon_facebook_add.png', :alt => 'Add this photo to your Facebook'), '#', :class => 'facebook-expand' %>
     </div>
-  	<div id="fb-container">
-  		Add this photo to your Facebook? &nbsp; <a href="#" class="button">Yes!</a><a href="#" class="button">Nevermind</a>
-  	</div>
+
+    <div id="fb-container" style='display:none'>
+        Add photo to Facebook? &nbsp; <a href="#" id='facebook_link' class="button">Yes!</a><a href="#" class="button facebook-close">Nevermind</a>
+    </div>
   </div>
 </div>
 
@@ -57,19 +56,27 @@
   var lastRequestData;
 
   var imageSizes;
+
+  var yes_button = $('<a>Yes!</a>').addClass('button').attr('id', 'facebook_link').attr('href', '#');
+  var nevermind_button = $('<a>Nevermind</a>').addClass('button facebook-close').attr('href', '#');
     
   var postPhotoToFacebook = function(){
-    var photo_id = $("#main-image img:first").attr('data-photo-id');
+    var photo_id = $("#main-image-wrap img:first").attr('data-photo-id');
+    var fb_container = $('#fb-container');
+    
+    fb_container.find('a').remove();
+
+    var loading_link = $('<a>Posting...</a>').addClass('facebook-loading');
+    fb_container.append(loading_link);
+
     $.post('<%= post_photo_to_facebook_event_url(@event) %>', {'photo_id': photo_id}, function(data){
       lastRequestData = data;
-      console.log('posted photo with data ' + data);
+
       if(lastRequestData['link'] !== '' && lastRequestData['link'] !== null){
-        if($('#view_on_facebook').length === 0){
-          var link_to_photo = $('<a target="_blank">View on Facebook</a>').attr('href', lastRequestData['link']).attr('id', 'view_on_facebook');
-          $('#action_buttons').append(link_to_photo);
-        }else{
-          $('#view_on_facebook').attr('href', lastRequestData['link']);
-        }
+    
+        var link_to_photo = $('<a target="_blank">View on Facebook</a>').attr('href', lastRequestData['link']).attr('id', 'view_on_facebook').addClass('button');
+        $('#fb-container').find('a').remove();
+        $('#fb-container').append(link_to_photo);
       }
     });
   }
@@ -89,7 +96,21 @@
 
     $('#main-image img:first').load(function(e){
       resizeThumbsForWidth(this.width);
-    })
+    });
+
+    $('.facebook-expand').live('click', function(e){
+      e.preventDefault();
+
+      $('#fb-container').fadeIn('fast');
+      $('.facebook-expand').fadeOut('fast');
+    });
+
+    $('.facebook-close').live('click', function(e){
+      e.preventDefault();
+
+      $('#fb-container').fadeOut('fast');
+      $('.facebook-expand').fadeIn('fast');
+    });
 
     $('.image_link').click(function(e){
       e.preventDefault(); 
@@ -98,7 +119,7 @@
       var photo_id = link.attr('data-photo-id');
       
 
-      var image_container = $('#main-image');
+      var image_container = $('#main-image-wrap');
       var current_big_image = image_container.find('img:first');
 
       if(current_big_image.attr('data-photo-id') !== photo_id){
@@ -106,7 +127,13 @@
         var image_width = image[0].width
         image.detach();
 
-        image_container.find('img').fadeOut('fast', function(){
+        var fb_container = $('#fb-container');
+        fb_container.hide();
+        fb_container.find('a').remove();
+        fb_container.append(yes_button).append(nevermind_button);
+        $('.facebook-expand').fadeIn('fast');
+
+        image_container.find('img:first').fadeOut('fast', function(){
           var old_image = $(this);
           old_image.detach().hide();
           $('#land_of_used_images').prepend(old_image);
@@ -124,7 +151,7 @@
 
     })
 
-    $('#facebook_link').click(function(e){
+    $('#facebook_link').live('click', function(e){
       e.preventDefault();
       FB.getLoginStatus(function(response) {
         if (response.session) {
