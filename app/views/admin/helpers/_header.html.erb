@@ -1,0 +1,7 @@
+<h1 class="logo">
+  <% begin %>
+    <%= link_to Typus.admin_title, root_path, :title => _t("View site") %>
+  <% rescue %>
+    <%= Typus.admin_title %>
+  <% end %>
+</h1>

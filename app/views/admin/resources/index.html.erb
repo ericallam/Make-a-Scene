@@ -1,0 +1,39 @@
+<%
+  page_title = _t("%{resources}", :resources => @resource.model_name.human.pluralize)
+  title(page_title)
+%>
+
+<% content_for :sidebar, build_sidebar %>
+
+<h2>
+  <%= page_title %>
+  <small><%= remove_filter_link %></small>
+</h2>
+
+<%= display_flash_message %>
+<%= typus_render :partial => 'index' %>
+
+<% if (build_filters || search) && !@resource.count.zero? %>
+  <div class="filters">
+    <%= build_filters %>
+    <%= search %>
+  </div>
+<% end %>
+
+<% if @resource.count.zero? %>
+  <p>
+    <%= _t("There are no %{records}.", :records => @resource.model_name.human.pluralize.downcase) %>
+    <%= link_to _t("Create one now."), { :action => "new" } if @current_user.can?('create', @resource) %>
+  </p>
+<% end %>
+
+<% if @items.any? -%>
+  <%= raw build_list(@resource, @fields, @items) %>
+  <%= pagination %>
+<% end %>
+
+<% if @items.empty? && !@resource.count.zero? %>
+  <div class="flash notice">
+    <%= _t("There are no %{records} under this filter.", :records => @resource.model_name.human.pluralize.downcase) %>
+  </div>
+<% end %>

@@ -1,0 +1,27 @@
+<div id="pagination">
+
+  <div class="left">
+
+    <% previous_text = ("&larr; " + _t("Previous")).html_safe %>
+
+    <% if @items.prev? %>
+      <%= link_to previous_text, params.merge(:page => @items.prev.number, :anchor => @options[:anchor]) %>
+    <% else %>
+      <span class="disabled"><%= previous_text %></span>
+    <% end %>
+
+  </div>
+
+  <div class="right">
+
+    <% next_text = (_t("Next") + " &rarr;").html_safe %>
+
+    <% if @items.next? %>
+      <%= link_to next_text, params.merge(:page => @items.next.number, :anchor => @options[:anchor]) %>
+    <% else %>
+      <span class="disabled"><%= next_text %></span>
+    <% end %>
+
+  </div>
+
+</div>
