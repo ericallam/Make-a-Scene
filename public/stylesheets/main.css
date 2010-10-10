@@ -111,6 +111,37 @@ ul.thumbs li img {
 }
 
 
+/* Password Page Styles
+----------------------------------------------------------------------------------------------------*/
+
+.pw-container {
+	background:url(/images/password_bg.png) no-repeat top center;
+	position: absolute;
+	margin:0;
+	width:960px;
+	height:300px;
+}
+
+.pw-container .custom-text {
+	background-color: transparent;
+	position: absolute;
+	top:128px;
+	left:350px;
+	width:200px;
+	height:20px;
+	padding:5px;
+	color:#eee;
+	font-size:14px;
+	border: 0;
+}
+
+.pw-container .button {
+	position: absolute;
+	top:120px;
+	left:568px;
+}
+
+
 /* Containers
 ----------------------------------------------------------------------------------------------------*/
 .container_16 {

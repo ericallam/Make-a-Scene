@@ -1,7 +1,10 @@
-<div>
-  <h3> Enter Password </h3>
+<div class="pw-container">
+
 
   <%= form_tag attempt_authorize_event_path(@event), :method => :post do %>
-    <%= password_field_tag 'password',  '' %>
+    <%= password_field_tag 'password',  '', :class => 'custom-text' %>
+    <div class="button"><input type="image" src="/images/button_go.png" /></div>
   <% end %>
+  
+  
 </div>
