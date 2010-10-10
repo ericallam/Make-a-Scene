@@ -2,12 +2,18 @@ html,body {
 	background: url(/images/main_bg.gif) repeat fixed;
 	margin:0;
 	padding:0;
+	font-family:Arial;
+	font-size:10px;
+}
+
+a {
+	color:#fff;
+    text-decoration: none;
 }
 
 a, img {
     border:none;
     outline:none;
-    text-decoration: none;
 }
 
 #logo {
@@ -98,13 +104,9 @@ a, img {
 }
 
 #main-image-wrap #fb-container a.button {
-/* Fallback for web browsers that doesn't support RGBa */
 	background: rgb(255, 255, 255);
-	/* RGBa with 0.6 opacity */
 	background: rgba(255, 255, 255, 0.05);
-	/* For IE 5.5 - 7*/
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#99FFFFFF, endColorstr=#99FFFFFF);
-	/* For IE 8*/
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FFFFFF, endColorstr=#19FFFFFF);
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FFFFFF, endColorstr=#19FFFFFF)";
 	margin:0 5px 0 0;
 	-moz-border-radius: 4px;
@@ -117,15 +119,6 @@ a, img {
 #main-image-wrap #fb-container a.button:hover {
 	background: rgba(255, 255, 255, 0.1);
 }
-
-#footer-fixed {
-	position: fixed;
-	bottom:0;
-	width: 100%;
-	background: url(/images/footer_fade.png) repeat-x;
-	height:70px;
-}
-
 
 .shadow {
 	-moz-box-shadow: 0px 1px 4px #000;
@@ -161,6 +154,56 @@ ul.thumbs li {
 ul.thumbs li img {
 	border:2px solid #fff;
 }
+
+
+/* Footer Styles
+----------------------------------------------------------------------------------------------------*/
+
+#footer-fixed {
+	position: fixed;
+	bottom:0;
+	width: 100%;
+	background: rgb(0, 0, 0);
+	background: rgba(0, 0, 0, 0.8);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ed000000, endColorstr=#ed000000);
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ed000000, endColorstr=#ed000000)";
+	color:#fff;
+	padding:10px 0 10px 0;
+}
+
+#footer-fixed h1 {
+	font-size:22px;
+	padding:0 0 0 50px;
+	margin: 0 15px 0 0;
+	font-family: 'Josefin Sans Std Light', serif;
+	font-weight: normal;
+	display: inline;
+}
+
+#footer-fixed span {
+	padding:0 0 3px 15px;
+	border-left:1px solid #1a1a1a;
+	color:#878787;
+	font-style: italic;
+}
+
+#footer-fixed a {
+	float:right;
+	margin:5px 0 0 10px;
+}
+
+#footer-fixed a img {
+	vertical-align: middle;
+	margin:0 5px 0 15px;
+}
+
+#footer-a {
+	position: absolute;
+	bottom:-5px;
+	margin:0 0 0 -30px;
+}
+
+
 
 
 /* Password Page Styles
