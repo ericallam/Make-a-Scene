@@ -4,8 +4,8 @@
 
 Event:
   fields:
-    default: name, private, live, permalink, password
-    form: name, private, live, permalink
+    default: name, private, live, permalink, password, occurred_on
+    form: name, private, live, permalink, occurred_on
   order_by: 
   relationships: photo_shares, photo_uploads, photos
   filters: 

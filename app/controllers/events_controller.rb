@@ -1,7 +1,11 @@
 class EventsController < ApplicationController
   
-  before_filter :find_event
-  before_filter :authorize_event, :except => [:authenticate, :attempt_authorize]
+  before_filter :find_event, :except => :index
+  before_filter :authorize_event, :except => [:authenticate, :attempt_authorize, :index]
+
+  def index
+
+  end
   
   def show
     if current_facebook_user and current_facebook_user['uid']
@@ -39,6 +43,8 @@ class EventsController < ApplicationController
   end
 
   def authorize_event
+    return true if request.env['HTTP_USER_AGENT'].to_s =~ /facebookexternalhit/
+
     if @event.private?
       authorized_events = session[:authorized_events] || {}
       if authorized_password = authorized_events[@event.id]
