@@ -4,7 +4,7 @@ class EventsController < ApplicationController
   before_filter :authorize_event, :except => [:authenticate, :attempt_authorize, :index]
 
   def index
-
+    @events = Event.live.not_private.order('occurred_on DESC').all
   end
   
   def show

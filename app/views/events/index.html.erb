@@ -1,37 +1,54 @@
+<%= content_for(:facebook_js) do %>
+  <div id="fb-root"></div>
+  <script>
+    window.fbAsyncInit = function() {
+      FB.init({appId: '125288907521593', status: true, cookie: true, xfbml: true});
+
+      FB.Event.subscribe('auth.sessionChange', function(response) {
+        if (response.session) {
+          console.log('logged in');
+          console.log(response);
+          // A user has logged in, and a new cookie has been saved
+        } else {
+          // The user has logged out, and the cookie has been cleared
+          console.log('failed login');
+          console.log(response);
+        }
+      });
+      
+
+    };
+
+    (function() {
+      var e = document.createElement('script');
+      e.src = document.location.protocol + '//connect.facebook.net/en_US/all.js';
+      e.async = true;
+      document.getElementById('fb-root').appendChild(e);
+    }());
+
+  </script>
+
+<% end %>
+
 <div id="galleries">
 
-	<h1>Make a Scene Galleries</h1>
+  <h1>Make a Scene Galleries</h1>
 
-	<ul class="gallerybox">
-	<li>
-	<img src="/images/sample.jpg" width="80" height="80" class="shadow" />
-	<h2>Tim & Jenna's Engagement Party</h2>
-	<span>December 10, 2010</span>
-	<small><a href="#"><img src="/images/icon_facebook.png" /> Share this Album</a></small>
-	<small><a href="#"><img src="/images/icon_twitter.png" /> Tweet this Album</a></small>
-	</li>
-	
-	
-	
-	<li>
-	<img src="/images/sample.jpg" width="80" height="80" class="shadow" />
-	<h2>Tim & Jenna's Engagement Party</h2>
-	<span>December 10, 2010</span>
-	<small><a href="#"><img src="/images/icon_facebook.png" /> Share this Album</a></small>
-	<small><a href="#"><img src="/images/icon_twitter.png" /> Tweet this Album</a></small>
-	</li>
-	
-	
-	<li>
-	<img src="/images/sample.jpg" width="80" height="80" class="shadow" />
-	<h2>Tim & Jenna's Engagement Party</h2>
-	<span>December 10, 2010</span>
-	<small><a href="#"><img src="/images/icon_facebook.png" /> Share this Album</a></small>
-	<small><a href="#"><img src="/images/icon_twitter.png" /> Tweet this Album</a></small>
-	</li>
-	
-	
-	</ul>
-	
-	<div style="clear:both;"></div>
+  <ul class="gallerybox">
+    <% @events.each do |event| %>
+      <li>
+        <%= link_to image_tag(event.photos.first.image.url(:album), :class => "shadow"), event_url(event) %>
+        <h2><%= link_to event.name, event_url(event) %></h2>
+        <span><%= (event.occurred_on || event.created_at).strftime("%B %d, %Y") %></span>
+        <small><a href="http://www.facebook.com/sharer.php?u=<%= CGI.escape(event_url(event)) %>&t=Make+a+Scene%3A+<%= CGI.escape(event.name) %>" target='_blank'><img src="/images/icon_facebook.png" /> Share this Album</a></small>
+        <small>
+          <%= link_to "http://twitter.com/share?url=#{CGI.escape(event_url(event))}&via=makeascenetv&", :target => "_blank" do %>
+            <img src="/images/icon_twitter.png" alt="Share this album on Twitter" />Tweet this Album
+          <% end %>
+        </small>
+      </li>
+    <% end %>
+  </ul>
+  
+  <div style="clear:both;"></div>
 </div>

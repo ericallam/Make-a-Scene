@@ -5,6 +5,7 @@ class Event < ActiveRecord::Base
   has_many :photo_uploads
 
   scope :live, where(:live => true)
+  scope :not_private, where(:private => false)
   
   has_permalink :name
   
