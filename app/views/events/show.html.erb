@@ -32,7 +32,7 @@
 
 <div id="main-image" class="shadow">
   <div id="main-image-wrap">
-    <%= image_tag @event.photos.first.image.url(:big), 'data-photo-id' => @event.photos.first.id %>
+    <%= image_tag @event.cover_photo.image.url(:big), 'data-photo-id' => @event.cover_photo.id %>
 
     <div id="fb-add">
       <%= link_to image_tag('icon_facebook_add.png', :alt => 'Add this photo to your Facebook'), '#', :class => 'facebook-expand' %>
@@ -68,7 +68,7 @@
 <%= content_for(:meta) do %>
   <meta property="og:title" content="<%= @event.name %>" /> 
   <meta property="og:description" content="<%= @event.name %>" />
-  <meta property="og:image" content="<%= @event.photos.first.image.url(:small) %>" />
+  <meta property="og:image" content="<%= @event.cover_photo.image.url(:small) %>" />
   <meta property="og:site_name" content="Make a Scene" />
 <% end %>
 

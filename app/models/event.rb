@@ -22,6 +22,10 @@ class Event < ActiveRecord::Base
   def to_param
     permalink
   end
+
+  def cover_photo
+    @cover_photo ||= photos.cover_photo.first || photos.first
+  end
   
   private
   

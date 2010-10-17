@@ -8,5 +8,7 @@ class Photo < ActiveRecord::Base
 
   # small = width: 100px, max-height: 150
   # big = width: 325px; max-height: 490 
+  #
+  scope :cover_photo, where(:cover_photo => true)
   
 end

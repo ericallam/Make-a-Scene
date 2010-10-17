@@ -16,8 +16,8 @@ Event:
 
 Photo:
   fields:
-    default: event, image
-    form: event, image
+    default: event, image, cover_photo
+    form: event, image, cover_photo
   order_by: 
   relationships: event, photo_shares
   filters: 

@@ -37,7 +37,7 @@
   <ul class="gallerybox">
     <% @events.each do |event| %>
       <li>
-        <%= link_to image_tag(event.photos.first.image.url(:album), :class => "shadow"), event_url(event) %>
+        <%= link_to image_tag(event.cover_photo.image.url(:album), :class => "shadow"), event_url(event) %>
         <h2><%= link_to event.name, event_url(event) %></h2>
         <span><%= (event.occurred_on || event.created_at).strftime("%B %d, %Y") %></span>
         <small><a href="http://www.facebook.com/sharer.php?u=<%= CGI.escape(event_url(event)) %>&t=Make+a+Scene%3A+<%= CGI.escape(event.name) %>" target='_blank'><img src="/images/icon_facebook.png" /> Share this Album</a></small>
