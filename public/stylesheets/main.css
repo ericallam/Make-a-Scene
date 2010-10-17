@@ -16,6 +16,12 @@ a, img {
     outline:none;
 }
 
+
+small {
+	font-family: Arial;
+	font-size:10px;
+}
+
 #logo {
 	margin:6px 0 0 0;
 	float: left;
@@ -153,6 +159,79 @@ ul.thumbs li {
 
 ul.thumbs li img {
 	border:2px solid #fff;
+}
+
+
+
+/* Galleries Page Styles
+----------------------------------------------------------------------------------------------------*/
+
+
+#galleries {
+	background: url(/images/title_galleries.png) no-repeat top center;
+	width:100%;
+	margin:-50px 0 0 0;
+	padding:120px 0 0 0;
+	color:#fff;
+}
+
+#galleries h1 {
+	text-indent: -9999px;
+	width:100%;
+	height:1px;
+}
+
+#galleries h2 {
+	margin:12px 0 5px 0;
+	font-weight: normal;
+	font-size:18px;
+}
+
+
+.gallerybox {
+	list-style-type: none;
+	margin:0;
+	padding:0;
+	font-family: 'Josefin Sans Std Light', serif;
+}
+
+.gallerybox li {
+	float:left;
+	width:400px;
+	padding:10px;
+	margin:0 10px 30px 10px;
+	border-style: solid;
+	border-width: 5px;
+	-moz-border-radius: 8px;
+	border-radius: 8px;
+	border-color: rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 1px 0px #1a1a1a;
+	-webkit-box-shadow: 0px 1px 0px #1a1a1a;
+	box-shadow: 0px 1px 0px #1a1a1a;
+}
+
+.gallerybox img {
+	float:left;
+	margin:0 15px 0 0;
+	border:2px solid #fff;
+}
+
+.gallerybox span {
+	color:#8e8e8e;
+	font-style: italic;
+	display: block;
+	margin:0 0 15px 0;
+}
+
+.gallerybox small {
+	margin:0 10px 0 0;
+}
+
+.gallerybox small img {
+	float:none;
+	margin:0 3px 0 0;
+	border:none;
+	vertical-align: -5px;
 }
 
 
