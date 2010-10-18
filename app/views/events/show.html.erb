@@ -56,8 +56,8 @@
   <div id="footer-fixed">
     <div class="container_16">
       <img src="/images/footer_a.png" alt="" id="footer-a" />
-      <h1><%= @event.name %></h1> <span><%= (@event.occurred_on || @event.created_at).strftime("%B %d, %Y") %></span>
-      <fb:like href="<%= event_url(@event) %>" layout="button_count" width="75" style="float:right"></fb:like>
+      <h1><%= @event.name %></h1> <span class="date"><%= (@event.occurred_on || @event.created_at).strftime("%B %d, %Y") %></span>
+      <fb:like href="<%= event_url(@event) %>" layout="button_count" width="75" style="float:right;margin:0 0 0 20px;"></fb:like>
       <%= link_to "http://twitter.com/share?url=#{CGI.escape(event_url(@event))}&via=makeascenetv&", :target => "_blank" do %>
         <img src="/images/icon_twitter.png" alt="Share this album on Twitter" />Tweet this Album
       <% end %>

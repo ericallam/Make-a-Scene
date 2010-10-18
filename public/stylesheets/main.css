@@ -1,5 +1,5 @@
 html,body {
-	background: url(/images/main_bg.gif) repeat fixed;
+	background: url(/images/main_bg.gif) repeat;
 	margin:0;
 	padding:0;
 	font-family:Arial;
@@ -73,10 +73,116 @@ small {
 	padding:30px;
 }
 
+
+/* Homepage Styles
+----------------------------------------------------------------------------------------------------*/
+
+#home-container {
+	background: url(/images/title_home.png) no-repeat top center;
+	padding:130px 0 0 0;
+	width:960px;
+	margin:-50px auto 0 auto;
+}
+
+#home-video {
+	position: relative;
+	width:640px;
+	height:385px;
+	float:right;
+	-moz-box-shadow: 0px 1px 4px #000;
+	-webkit-box-shadow: 0px 1px 4px #000;
+	box-shadow: 0px 1px 4px #000;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000');
+}
+
+#home-video #video {
+	position:absolute;
+	top:0;
+	left:0;
+	z-index: 999;
+}
+
+#home-video #splat-1 {
+	position: absolute;
+	bottom:-30px;
+	left:-45px;
+	width:142px;
+	height:93px;
+	background:url(/images/splat_1.png) no-repeat;
+	z-index:99;
+}
+
+#home-video #splat-2 {
+	position: absolute;
+	top:-70px;
+	right:-70px;
+	width:172px;
+	height:163px;
+	background:url(/images/splat_2.png) no-repeat;
+	z-index:99;
+}
+
+#home-copy {
+	background: url(/images/title_remember.png) no-repeat;
+	padding:65px 30px 0 0;
+	float: left;
+	width:270px;
+	line-height: 24px;
+	color:#7a7a7a;
+	font-size:11px;
+}
+
+#home-slider {
+	background: url(/images/slider_bg.png) no-repeat;
+	width:962px;
+	height:200px;
+	margin:0px auto 0 auto;
+	padding:50px 0 50px 0;
+	position: relative;
+}
+
+#home-slider ul {
+	list-style-type: none;
+	margin:0 auto 0 auto;
+	padding:0;
+	width:920px;
+}
+
+#home-slider li {
+	float:left;
+	margin:20px 10px 0 15px;
+}
+
+#home-slider li img {
+	border:2px solid #fff;
+	-moz-box-shadow: 0px 1px 4px #000;
+	-webkit-box-shadow: 0px 1px 4px #000;
+	box-shadow: 0px 1px 4px #000;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000');
+}
+
+#slider-arrow-left {
+	position: absolute;
+	top:120px;
+	left:5px;
+}
+
+#slider-arrow-right {
+	position: absolute;
+	top:120px;
+	right:5px;
+}
+
+
+/* Event Page Styles
+----------------------------------------------------------------------------------------------------*/
+
 #main-image {
 	position: fixed;
 	background-color: #fff;
-	padding:10px 10px 5px 10px;
+	padding:5px 5px 2px 5px;
 }
 
 #main-image-wrap {
@@ -96,7 +202,7 @@ small {
 	position: absolute;
 	width: 100%;
 	height:20px;
-	bottom:6px;
+	bottom:3px;
 	background-color: #000;
 	filter:alpha(opacity=8);
 	-moz-opacity:0.80;
@@ -248,6 +354,7 @@ ul.thumbs li img {
 	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ed000000, endColorstr=#ed000000)";
 	color:#fff;
 	padding:10px 0 10px 0;
+	z-index: 9999;
 }
 
 #footer-fixed h1 {
@@ -259,7 +366,7 @@ ul.thumbs li img {
 	display: inline;
 }
 
-#footer-fixed span {
+#footer-fixed .date {
 	padding:0 0 3px 15px;
 	border-left:1px solid #1a1a1a;
 	color:#878787;
