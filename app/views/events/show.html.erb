@@ -47,7 +47,6 @@
 <ul class="thumbs four_column">
   <% @event.photos.each do |photo| %>
     <li><%= link_to image_tag(photo.image.url(:small), :class => 'shadow'), '#', :class => 'image_link', 'data-image-url' => photo.image.url(:big), 'data-photo-id' => photo.id %></li>
-    <%= image_tag photo.image.url(:big), :style => 'display:none', :id => "photo_big_#{photo.id}", 'data-photo-id' => photo.id %>
   <% end %>
 </ul>
 <div class="clear"></div>
@@ -144,9 +143,7 @@
       var current_big_image = image_container.find('img:first');
 
       if(current_big_image.attr('data-photo-id') !== photo_id){
-        var image = $('#photo_big_' + photo_id);
-        var image_width = image[0].width
-        image.detach();
+        var image = current_big_image.clone().attr('src', image_url).attr('data-photo-id', photo_id);
 
         var fb_container = $('#fb-container');
         fb_container.hide();
@@ -166,7 +163,7 @@
           $('#view_on_facebook').remove();
         }
 
-        resizeThumbsForWidth(image_width);
+        // resizeThumbsForWidth(image_width);
       }
 
 
