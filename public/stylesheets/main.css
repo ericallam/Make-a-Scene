@@ -74,6 +74,15 @@ small {
 }
 
 
+
+/* Header Styles
+----------------------------------------------------------------------------------------------------*/
+
+h1 {
+	margin:0;
+}
+
+
 /* Homepage Styles
 ----------------------------------------------------------------------------------------------------*/
 
@@ -245,6 +254,10 @@ ul.thumbs {
 	list-style-type:none;
 }
 
+ul.five_column {
+  padding:0 0 0 350px;
+}
+
 ul.four_column {
   padding:0 0 0 400px;
 }
@@ -254,7 +267,7 @@ ul.three_column {
 }
 
 ul.two_column {
-  padding: 0 0 0 700px;
+  padding: 0 0 0 580px;
 }
 
 ul.thumbs li {
@@ -265,6 +278,7 @@ ul.thumbs li {
 
 ul.thumbs li img {
 	border:2px solid #fff;
+	width:95px;
 }
 
 
