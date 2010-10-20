@@ -102,13 +102,15 @@
   }
 
   var resizeThumbsForWidth = function(width){
-  
-    if(width <= 368){
-      $('ul.thumbs').removeClass('two_column three_column').addClass('four_column');
+
+    if(width <= 300){
+      $('ul.thumbs').removeClass('two_column three_column four_column').addClass('five_column');
+    }else if(width <= 368){
+      $('ul.thumbs').removeClass('two_column three_column five_column').addClass('four_column');
     }else if(width <= 498){
-      $('ul.thumbs').removeClass('two_column four_column').addClass('three_column');
+      $('ul.thumbs').removeClass('two_column four_column five_column').addClass('three_column');
     }else {
-      $('ul.thumbs').removeClass('three_column four_column').addClass('two_column');
+      $('ul.thumbs').removeClass('three_column four_column five_column').addClass('two_column');
     }
   }
 
