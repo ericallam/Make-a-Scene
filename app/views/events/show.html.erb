@@ -155,8 +155,7 @@
 
         image_container.find('img:first').fadeOut('fast', function(){
           var old_image = $(this);
-          old_image.detach().hide();
-          $('#land_of_used_images').prepend(old_image);
+          old_image.remove();
           image_container.prepend(image);
           image.fadeIn('fast')
         });
@@ -209,7 +208,3 @@
     })
   });
 </script>
-
-<div id='land_of_used_images' style="display:none;">
-
-</div>
