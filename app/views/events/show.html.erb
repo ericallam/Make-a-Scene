@@ -46,7 +46,11 @@
 
 <ul class="thumbs four_column">
   <% @event.photos.each do |photo| %>
-    <li><%= link_to image_tag(photo.image.url(:small), :class => 'shadow'), '#', :class => 'image_link', 'data-image-url' => photo.image.url(:big), 'data-photo-id' => photo.id %></li>
+    <li>
+      <%= link_to '#', :class => 'image_link', 'data-image-url' => photo.image.url(:big), 'data-photo-id' => photo.id do %>
+        <img src='/images/grey.gif' original="<%= photo.image.url(:small) %>" class='shadow' />
+      <% end %>
+    </li>
   <% end %>
 </ul>
 <div class="clear"></div>
@@ -69,6 +73,10 @@
   <meta property="og:description" content="<%= @event.name %>" />
   <meta property="og:image" content="<%= @event.cover_photo.image.url(:small) %>" />
   <meta property="og:site_name" content="Make a Scene" />
+<% end %>
+
+<%= content_for(:javascripts) do %>
+  <%= javascript_include_tag 'jquery.lazyload' %>
 <% end %>
 
 <script>
@@ -115,6 +123,8 @@
   }
 
   $(document).ready(function(){
+    $("ul.thumbs img").lazyload({placeholder : "/images/grey.gif"});
+    
 
     $('#main-image img:first').load(function(e){
       resizeThumbsForWidth(this.width);
