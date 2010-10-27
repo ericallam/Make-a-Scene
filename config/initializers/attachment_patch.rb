@@ -8,6 +8,8 @@ module Paperclip
             puts 'style: ' + style.processor_options.inspect
             if style.processor_options[:geometry].present?
               Paperclip.processor(processor).make(file, style.processor_options, self)
+            else
+              file
             end
           end
         rescue PaperclipError => e
