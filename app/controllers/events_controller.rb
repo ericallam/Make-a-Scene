@@ -16,7 +16,7 @@ class EventsController < ApplicationController
   def post_photo_to_facebook
     @photo = @event.photos.find params[:photo_id]
 
-    facebook_uploader = FacebookUploader.new(@photo.image.url, current_facebook_user, current_graph)
+    facebook_uploader = FacebookUploader.new(@photo.image.url(:external), current_facebook_user, current_graph)
     if facebook_uploader.upload
       @photo.photo_shares.create(:facebook_uid => current_facebook_user['uid'], :facebook_photo_url => facebook_uploader.link)
       render :json => {:link => facebook_uploader.link, :success => true}
