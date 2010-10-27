@@ -56,8 +56,6 @@ module Paperclip
         "#{ File.expand_path(dst.path) }"
       ].flatten.compact
 
-      puts 'compose options' + options.inspect
-
       begin
         success = Paperclip.run("composite", *options)
       rescue PaperclipCommandLineError
