@@ -15,4 +15,14 @@ module Paperclip
       end
     end
   end
+
+  class Style
+    def processors
+      if @processors.respond_to?(:call)
+        @processors.call(attachment.instance)
+      else
+        @processors || attachment.processors
+      end
+    end
+  end
 end

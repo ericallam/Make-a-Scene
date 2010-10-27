@@ -5,7 +5,7 @@
 Event:
   fields:
     default: name, private, live, permalink, password, occurred_on
-    form: name, private, live, permalink, occurred_on
+    form: name, private, live, permalink, occurred_on, already_watermarked
   order_by: 
   relationships: photo_shares, photo_uploads, photos
   filters: 
