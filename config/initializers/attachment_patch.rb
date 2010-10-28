@@ -1,16 +1,11 @@
 module Paperclip
   class Attachment
     def post_process_styles #:nodoc:
-      styles.each do |name, style|
+      styles.reject {|name, s| s.processor_options[:geometry].blank? }.each do |name, style|
         begin
           raise RuntimeError.new("Style #{name} has no processors defined.") if style.processors.blank?
           @queued_for_write[name] = style.processors.inject(@queued_for_write[:original]) do |file, processor|
-            puts 'style: ' + style.processor_options.inspect
-            if style.processor_options[:geometry].present?
-              Paperclip.processor(processor).make(file, style.processor_options, self)
-            else
-              file
-            end
+            Paperclip.processor(processor).make(file, style.processor_options, self)
           end
         rescue PaperclipError => e
           log("An error was received while processing: #{e.inspect}")
