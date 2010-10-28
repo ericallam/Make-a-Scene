@@ -8,6 +8,7 @@
   <%= csrf_meta_tag %>
   <%= yield :meta %>
   <link  href="//fonts.googleapis.com/css?family=Josefin+Sans+Std+Light:regular&subset=latin" rel="stylesheet" type="text/css" >
+  <%= yield :stylesheets %>
 </head>
 <body>
 
@@ -51,6 +52,8 @@
   })();
 
 </script>
+
+<%= yield :inline_js %>
 
 </body>
 </html>
