@@ -50,29 +50,33 @@ module Paperclip
       dst = Tempfile.new([@basename, @format].compact.join("."))
       dst.binmode
 
-      options = [
+      parameters = [
         ['-gravity', @position, convert_options, transformation_command, @watermark_path],
         "#{ File.expand_path(src.path) }",
         "#{ File.expand_path(dst.path) }"
-      ].flatten.compact
+      ]
+
+      parameters = parameters.flatten.compact.join(" ").strip.squeeze(" ")
 
       begin
-        success = Paperclip.run("composite", *options)
-      rescue PaperclipCommandLineError
+        success = Paperclip.run("composite", parameters, :source => "#{File.expand_path(src.path)}[0]", :dest => File.expand_path(dst.path))
+      rescue PaperclipCommandLineError => e
         raise PaperclipError, "There was an error processing the watermark for #{@basename}" if @whiny
       end
 
       dst
     end
+
     # Returns the command ImageMagick's +convert+ needs to transform the image
     # into the thumbnail.
     def transformation_command
       scale, crop = @current_geometry.transformation_to(@target_geometry, crop?)
       trans = []
-      trans << "-resize" << scale unless scale.nil? || scale.empty?
-      trans << "-crop" << crop << "+repage" if crop
+      trans << "-resize" << %["#{scale}"] unless scale.nil? || scale.empty?
+      trans << "-crop" << %["#{crop}"] << "+repage" if crop
       trans
     end
+
   end
 end
 

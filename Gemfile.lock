@@ -4,6 +4,14 @@ GIT
   specs:
     typus (1.0.0.pre8)
 
+GIT
+  remote: git://github.com/thoughtbot/paperclip.git
+  revision: 35cdaa548d1b8439b73d5613153f9b7248bb3314
+  specs:
+    paperclip (2.3.5)
+      activerecord
+      activesupport
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -67,9 +75,6 @@ GEM
       faraday (~> 0.4.1)
       multi_json (>= 0.0.4)
     paginate (0.1.1)
-    paperclip (2.3.3)
-      activerecord
-      activesupport
     permalink_fu (1.0.0)
     pg (0.9.0)
     polyglot (0.3.1)
@@ -115,7 +120,7 @@ DEPENDENCIES
   koala
   oauth2
   paginate
-  paperclip
+  paperclip!
   permalink_fu
   pg
   rails (= 3.0.0)
