@@ -199,7 +199,7 @@ h1 {
 #home-events li {
 	float:left;
 	background: url(/images/check_orange.png) no-repeat;
-	padding:0 18px 0 17px;
+	padding:0 15px 0 17px;
 }
 
 
@@ -378,13 +378,11 @@ ul.thumbs li img {
 
 #footer {
 	background: url(/images/footer_bg.png) repeat-x;
-	height:290px;
 	padding:25px 0 0 0;
 }
 
 #footer-container {
 	background: url(/images/footer_lightup.png) no-repeat center 30px;
-	height:200px;
 }
 
 #footer .section {
@@ -417,7 +415,7 @@ ul.thumbs li img {
 
 .footer-twitter-container {
 	width:273px;
-	margin:0 0 15px 0;
+	margin:5px 0 10px 0;
 }
 
 .footer-twitter-post {
@@ -433,6 +431,7 @@ ul.thumbs li img {
 	color:#383838;
 	font-style: italic;
 	font-size:10px;
+	line-height:14px;
 }
 
 
