@@ -184,6 +184,24 @@ h1 {
 	right:5px;
 }
 
+#home-events {
+	list-style-type: none;
+	background: url(/images/home_checks_bg.png) no-repeat;
+	margin:20px 0 20px 0;
+	padding:22px 0 0 22px;
+	text-align: center;
+	height:40px;
+	color:#9b9b9b;
+	font-size:15px;
+	font-family: 'Josefin Sans Std Light', serif;
+}
+
+#home-events li {
+	float:left;
+	background: url(/images/check_orange.png) no-repeat;
+	padding:0 18px 0 17px;
+}
+
 
 /* Event Page Styles
 ----------------------------------------------------------------------------------------------------*/
@@ -360,7 +378,7 @@ ul.thumbs li img {
 
 #footer {
 	background: url(/images/footer_bg.png) repeat-x;
-	height:280px;
+	height:290px;
 	padding:25px 0 0 0;
 }
 
@@ -396,6 +414,27 @@ ul.thumbs li img {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000')";
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000');
 }
+
+.footer-twitter-container {
+	width:273px;
+	margin:0 0 15px 0;
+}
+
+.footer-twitter-post {
+	background: url(/images/footer_twitter_top.png) no-repeat;
+	padding:8px 12px 8px 12px;
+	color:#4f4f4f;
+}
+
+.footer-twitter-date {
+	background: url(/images/footer_twitter_bottom.png) no-repeat;
+	border-top:1px solid #161616;
+	padding:3px 0 14px 12px;
+	color:#383838;
+	font-style: italic;
+	font-size:10px;
+}
+
 
 #footer-container .connect {
 	margin:18px 0 5px -4px;
