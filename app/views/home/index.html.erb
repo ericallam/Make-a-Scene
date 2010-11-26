@@ -32,18 +32,6 @@ It was popularised in the 1960s with the release of Letraset sheets containing L
 <li>We Supply Props!</li>
 </ul>
 
-<!--div id="home-slider">
-  <div id="slider-arrow-left"><img src="/images/arrow_orange_left.png" /></div>
-  <div id="slider-arrow-right"><img src="/images/arrow_orange_right.png" /></div>
-  <ul>
-    <li><img src="/images/sample2.jpg" width="200" height="135" /></li>
-    <li><img src="/images/sample2.jpg" width="200" height="135" /></li>
-    <li><img src="/images/sample2.jpg" width="200" height="135" /></li>
-    <li><img src="/images/sample2.jpg" width="200" height="135" /></li>
-  </ul>
-</div-->
-
-
 <%= content_for(:javascripts) do %>
   <%= javascript_include_tag 'jquery.jcarousel.min.js' %>
 <% end %>
@@ -52,11 +40,18 @@ It was popularised in the 1960s with the release of Letraset sheets containing L
   <%= stylesheet_link_tag 'skin' %>
 <% end %>
 
+<div id="home-slider">
+
 <ul id="mycarousel" class="jcarousel-skin-tango">
   <% @images.each do |image| %>
     <li><%= image_tag image %></li>
   <% end %>
 </ul>
+<div id="event-name-container">
+<div id="event-name-arrow">&nbsp;</div>
+<span id="event-name-1"><span id="event-name-2">Somebody's Birthday <span>- July 2nd, 2010</span></span></span></div>
+</div>
+
 
 </div>
 
