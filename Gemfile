@@ -20,6 +20,9 @@ gem 'koala'
 gem 'rest-client'
 gem 'aws-s3'
 gem 'typus', :git => 'git://github.com/fesplugas/typus.git'
+gem 'twitter', :git => 'git://github.com/jnunemaker/twitter.git'
+gem 'yajl-ruby', :require => 'yajl'
+gem 'dalli'
 
 group :test do
   gem 'factory_girl'

@@ -13,4 +13,15 @@ class ApplicationController < ActionController::Base
     
     session[:user_info] ||= @oauth.get_user_info_from_cookie(cookies)
   end
+
+  def recent_tweets
+    Rails.cache.read('twitter_updates') or begin
+      t = Twitter::Client.new
+      tweets = t.user_timeline("makeascenetv", :count => 2)
+      Rails.cache.write('twitter_updates', tweets, :expires_in => 1.hour)
+      tweets
+    end
+  end
+
+  helper_method :recent_tweets
 end

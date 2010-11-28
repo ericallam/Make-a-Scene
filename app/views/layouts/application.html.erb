@@ -50,16 +50,13 @@
 	<div id="footer-container" class="container_16">
 	  <div class="section" style="width:340px;">
 	    <img src="/images/title_footer_twitter.png" alt="Latest Twitter Updates"><br /><br /><br />
-	    
-	    <div class="footer-twitter-container">
-	      <div class="footer-twitter-post">Its Sunday funday on the lake with a birthday bash!! See you all out there for some fun in the sun! www.facebook.com/makeascenetv Like us!!</div>
-	      <div class="footer-twitter-date">Posted on December 10, 2010</div>
-	    </div>
-	    
-	    <div class="footer-twitter-container">
-	      <div class="footer-twitter-post">Its Sunday funday on the lake with a birthday bash!! See you all out there for some fun in the sun! www.facebook.com/makeascenetv Like us!!</div>
-	      <div class="footer-twitter-date">Posted on December 10, 2010</div>
-	    </div>
+
+            <% recent_tweets.each do |tweet| %>
+              <div class="footer-twitter-container">
+                <div class="footer-twitter-post"><%= tweet.text %></div>
+                <div class="footer-twitter-date">Posted on <%= DateTime.parse(tweet.created_at).strftime("%B %d, %Y") rescue '' %></div>
+              </div>
+            <% end %>
 	    
 	  </div>
 	  <div class="section" style="width:350px;">
