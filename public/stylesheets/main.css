@@ -12,6 +12,10 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+	color:#fffac6;
+}
+
 img {
     border:none;
     outline:none;
@@ -515,7 +519,7 @@ ul.thumbs li img {
 	width: 100%;
 	background:url(/images/bg_black_80.png) repeat;
 	color:#fff;
-	padding:10px 0 10px 0;
+	padding:10px 0 8px 0;
 	z-index: 9999;
 }
 
@@ -537,7 +541,7 @@ ul.thumbs li img {
 
 #footer-fixed a {
 	float:right;
-	margin:5px 0 0 10px;
+	margin:3px 0 0 10px;
 }
 
 #footer-fixed a img {
