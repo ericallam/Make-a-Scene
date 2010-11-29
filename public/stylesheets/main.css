@@ -234,6 +234,34 @@ h4 {
 }
 
 
+/* Contact Us Page Styles
+----------------------------------------------------------------------------------------------------*/
+
+
+#contactheader {
+	background: url(/images/title_contact.png) no-repeat top center;
+	width:100%;
+	margin:-50px 0 0 0;
+	padding:140px 0 0 0;
+}
+
+input .form {
+	background: transparent url(/images/input_bg.png) no-repeat;
+	border:0;
+	padding:6px;
+	height:20px;
+	width:210px;
+}
+
+textarea {
+	background: transparent url(/images/input_comments_bg.png) no-repeat;
+	border:0;
+	padding:6px;
+	height:20px;
+	width:474px;
+}
+
+
 /* Event Page Styles
 ----------------------------------------------------------------------------------------------------*/
 
@@ -261,11 +289,7 @@ h4 {
 	width: 100%;
 	height:20px;
 	bottom:3px;
-	background-color: #000;
-	filter:alpha(opacity=8);
-	-moz-opacity:0.80;
-	-khtml-opacity: 0.8;
-	opacity: 0.8;
+	background:url(/images/bg_black_80.png) repeat;
 	text-align: center;
 	font:10px Arial;
 	color:#fff;
@@ -351,7 +375,7 @@ ul.thumbs li img {
 }
 
 #galleries h2 {
-	margin:12px 0 5px 0;
+	margin:8px 0 5px 0;
 	font-weight: normal;
 	font-size:18px;
 }
@@ -367,16 +391,10 @@ ul.thumbs li img {
 .gallerybox li {
 	float:left;
 	width:400px;
-	padding:10px;
+	height:120px;
+	padding:18px;
 	margin:0 10px 30px 10px;
-	border-style: solid;
-	border-width: 5px;
-	-moz-border-radius: 8px;
-	border-radius: 8px;
-	border-color: rgba(0, 0, 0, 0.2);
-	-moz-box-shadow: 0px 1px 0px #1a1a1a;
-	-webkit-box-shadow: 0px 1px 0px #1a1a1a;
-	box-shadow: 0px 1px 0px #1a1a1a;
+	background: url(/images/events_box_bg.png) no-repeat;
 }
 
 .gallerybox img {
@@ -495,10 +513,7 @@ ul.thumbs li img {
 	position: fixed;
 	bottom:0;
 	width: 100%;
-	background: rgb(0, 0, 0);
-	background: rgba(0, 0, 0, 0.8);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#ed000000, endColorstr=#ed000000);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#ed000000, endColorstr=#ed000000)";
+	background:url(/images/bg_black_80.png) repeat;
 	color:#fff;
 	padding:10px 0 10px 0;
 	z-index: 9999;
