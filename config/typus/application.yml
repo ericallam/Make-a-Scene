@@ -44,3 +44,8 @@ PhotoUpload:
   search: 
   application: makeascene
 
+Contact:
+  fields:
+    default: name, phone, email, event_type, event_date, comments
+  order_by:
+  application: makeascene

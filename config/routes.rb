@@ -23,8 +23,10 @@ Makeascene::Application.routes.draw do |map|
     end
   end
 
+  resources :contacts
+
   match '/faq', :to => 'home#faq'
-  match '/contact', :to => 'home#contact'
+  match '/contact', :to => 'contacts#new'
 
   root :to => "home#index"
 

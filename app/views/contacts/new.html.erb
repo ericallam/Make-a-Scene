@@ -1,0 +1,53 @@
+<div id="contactheader">
+
+<%= image_tag 'contact_rightinfo.png', :style => 'float:right;margin:0 0 0 50;' %>
+
+<h3>Allow Make a Scene to document your event...test do it for your guests.</h3>
+
+<%= form_for @contact do |form| %>
+  <table border="0" cellpadding="10" cellspacing="0" width="500">
+  <tr>
+    <td>
+      <label>Your Name</label>
+      <%= form.text_field :name, :class => 'form' %>
+    </td>
+    <td>
+      <label>Your Email</label>
+      <%= form.text_field :email, :class => 'form' %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label>Your Phone Number</label>
+      <%= form.text_field :phone, :class => 'form' %>
+    </td>
+    <td>
+      <label>Type of Event</label>
+      <%= form.text_field :event_type, :class => 'form' %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <label>Date of Event</label>
+      <%= form.text_field :event_date, :class => 'form' %>
+    </td>
+    <td>
+      <label>Your Budget</label>
+      <%= form.text_field :budget, :class => 'form' %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <label>Additional Comments</label>
+      <%= form.text_area :comments, :rows => '50', :cols => '40' %>
+    </td>
+  </tr>
+  <tr><td colspan="2"><%= image_tag "inset_1px.png", :height => "2", :width => "500" %></td></tr>
+  <tr><td align="right"><%= image_submit_tag "button_submit.png" %></td></tr>
+  </table>
+<% end %>
+
+<div style="clear:both;"></div>
+
+</div>
+

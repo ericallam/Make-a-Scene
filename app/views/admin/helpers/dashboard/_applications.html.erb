@@ -1,4 +1,4 @@
-<% @current_user.applications.each do |app| %>
+<% current_user.applications.each do |app| %>
 
   <table>
 
@@ -8,12 +8,12 @@
       </tr>
     </thead>
 
-    <% @current_user.application(app).each do |model| %>
+    <% current_user.application(app).each do |model| %>
 
       <%
-        klass = model.constantize
+        klass = model.typus_constantize
         klass_human_name = klass.model_name.human.gsub("/", " ").pluralize
-        admin_items_path = { :controller => "admin/#{klass.to_resource}" }
+        admin_items_path = { :controller => "/admin/#{klass.to_resource}" }
       %>
 
       <tr class="<%= cycle("even", "odd") %>">
@@ -21,7 +21,7 @@
           <%= link_to klass_human_name, admin_items_path %>
         </td>
         <td class="right">
-          <%= link_to_if @current_user.can?("create", klass), _t("Add"), admin_items_path.merge(:action => "new") %>
+          <%= link_to_if current_user.can?("create", klass), _t("Add"), admin_items_path.merge(:action => "new") %>
         </td>
       </tr>
 

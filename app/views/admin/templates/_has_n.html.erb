@@ -9,7 +9,7 @@
 
   <% if @items.any? -%>
     <%= table %>
-    <%= pagination(:anchor => model_to_relate.to_resource) %>
+    <%= will_paginate(@items, Typus.pagination.merge(:anchor => model_to_relate.to_resource)) %>
   <% else %>
     <p><%= _t("There are no %{records}.", :records => model_to_relate.model_name.human.pluralize.downcase) %></p>
   <% end %>

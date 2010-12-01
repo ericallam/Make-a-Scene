@@ -3,7 +3,7 @@
   options = options.merge!(custom)
 %>
 
-<li>
+<li id="<%= attribute %>">
   <%= form.label attribute, label_text %>
   <%= form.text_area attribute, options %>
 </li>

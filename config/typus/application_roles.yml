@@ -7,3 +7,4 @@ admin:
   Photo: create, read, update, delete
   PhotoShare: create, read, update, delete
   PhotoUpload: create, read, update, delete
+  Contact: create, read, update, delete

@@ -1,9 +1,12 @@
 <% resources.each do |key, value| %>
 
-  <% resource = "/admin/#{key.constantize.to_resource}" %>
+  <%
+    klass = key.typus_constantize
+    resource = "/admin/#{klass.to_resource}"
+  %>
 
   <%= link_to :controller => resource, :action => "index" do %>
-    <h3><%= _t(key.constantize.model_name.human.pluralize) %></h3>
+    <h3><%= _t(klass.model_name.human.pluralize) %></h3>
   <% end %>
 
   <% if @resource.name.eql?(key) %>
