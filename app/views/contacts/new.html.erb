@@ -2,12 +2,11 @@
 
 <%= image_tag 'contact_rightinfo.png', :style => 'float:right;margin:0 0 0 50;' %>
 
-<h3>Allow Make a Scene to document your event...test do it for your guests.</h3>
 
 <%= form_for @contact do |form| %>
-  <table border="0" cellpadding="10" cellspacing="0" width="500">
+  <table border="0" cellpadding="0" cellspacing="0" width="480" class="form">
   <tr>
-    <td>
+    <td width="265">
       <label>Your Name</label>
       <%= form.text_field :name, :class => 'form' %>
     </td>
@@ -42,8 +41,8 @@
       <%= form.text_area :comments, :rows => '50', :cols => '40' %>
     </td>
   </tr>
-  <tr><td colspan="2"><%= image_tag "inset_1px.png", :height => "2", :width => "500" %></td></tr>
-  <tr><td align="right"><%= image_submit_tag "button_submit.png" %></td></tr>
+  <tr><td colspan="2"><%= image_tag "inset_1px.png", :height => "2", :width => "480", :style => 'padding:15px 0 15px 0;' %></td></tr>
+  <tr><td align="right" colspan="2"><%= image_submit_tag "button_submit.png" %></td></tr>
   </table>
 <% end %>
 

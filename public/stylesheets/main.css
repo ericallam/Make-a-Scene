@@ -249,20 +249,31 @@ h4 {
 	padding:140px 0 0 0;
 }
 
-input .form {
+.form input[type='text'] {
 	background: transparent url(/images/input_bg.png) no-repeat;
 	border:0;
-	padding:6px;
+	padding:12px;
 	height:20px;
-	width:210px;
+	width:197px;
+	color:#bababa;
+	margin:0 0 25px 0;
+	font:11px "Lucida Sans Unicode","Trebuchet MS", Arial;
 }
 
-textarea {
+.form textarea {
 	background: transparent url(/images/input_comments_bg.png) no-repeat;
 	border:0;
-	padding:6px;
-	height:20px;
-	width:474px;
+	padding:12px;
+	height:85px;
+	width:460px;
+	color:#bababa;
+	font:11px "Lucida Sans Unicode","Trebuchet MS", Arial;
+}
+
+.form label {
+	font: 14px/27px 'QuicksandBook', Arial, sans-serif;
+	margin:0 0 3px 0;
+	color:#aaa;
 }
 
 
