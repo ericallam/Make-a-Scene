@@ -46,6 +46,7 @@
 
 <%= yield :footer %>
 
+<% unless @disable_footer %>
   <div id="footer">
 	<div id="footer-container" class="container_16">
 	  <div class="section" style="width:340px;">
@@ -80,6 +81,7 @@
 	  <div id="copyright"><a href="/">Home</a> &nbsp;|  <a href="/">About Us</a> &nbsp;|&nbsp;  <a href="/">Galleries</a> &nbsp;|&nbsp;  <a href="/">Contact Us</a> &nbsp; | &nbsp; &copy; 2010 Make a Scene<span>This has been a <strong>Make a Scene</strong> Production</span></div>
 	</div>
   </div>
+<% end %>
 
 <script type="text/javascript">
 
