@@ -101,7 +101,7 @@ h2 {
 }
 
 h3 {
-	font: 16px "Quicksand", Arial, sans-serif;
+	font: 16px "QuicksandBook", Arial, sans-serif;
 	color:#fff;
 	margin:10px 0 0 0;
 }
@@ -180,7 +180,7 @@ h4 {
 	height:40px;
 	color:#9b9b9b;
 	font-size:13px;
-	font-family: 'QuickSand', serif;
+	font-family: 'QuickSandBook', serif;
 }
 
 #home-events li {
@@ -197,7 +197,7 @@ h4 {
 	width:960px;
 	z-index: 9999;
 	height:55px;
-	font: 14px/27px 'Quicksand', Arial, sans-serif;
+	font: 14px/27px 'QuicksandBook', Arial, sans-serif;
 }
 
 #event-name-1 {
@@ -389,7 +389,7 @@ ul.thumbs li img {
 	list-style-type: none;
 	margin:0;
 	padding:0;
-	font-family: 'Quicksand', serif;
+	font-family: 'QuicksandBook', serif;
 }
 
 .gallerybox li {
