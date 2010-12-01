@@ -24,6 +24,7 @@ Makeascene::Application.routes.draw do |map|
   end
 
   match '/faq', :to => 'home#faq'
+  match '/contact', :to => 'home#contact'
 
   root :to => "home#index"
 
