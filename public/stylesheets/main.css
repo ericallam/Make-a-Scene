@@ -195,7 +195,7 @@ h4 {
 	color:#fff;
 	position: relative;
 	width:960px;
-	z-index: 9999;
+	z-index: 9998;
 	height:55px;
 	font: 14px/27px 'QuicksandBook', Arial, sans-serif;
 }
@@ -252,12 +252,12 @@ h4 {
 .form input[type='text'] {
 	background: transparent url(/images/input_bg.png) no-repeat;
 	border:0;
-	padding:12px;
+	padding:10px 12px 14px 12px;
 	height:20px;
 	width:197px;
 	color:#bababa;
 	margin:0 0 25px 0;
-	font:11px "Lucida Sans Unicode","Trebuchet MS", Arial;
+	font:12px "Lucida Sans Unicode","Trebuchet MS", Arial;
 }
 
 .form textarea {
@@ -267,7 +267,7 @@ h4 {
 	height:85px;
 	width:460px;
 	color:#bababa;
-	font:11px "Lucida Sans Unicode","Trebuchet MS", Arial;
+	font:12px "Lucida Sans Unicode","Trebuchet MS", Arial;
 }
 
 .form label {
@@ -313,20 +313,23 @@ h4 {
 }
 
 #main-image-wrap #fb-container a.button {
-	background: rgb(255, 255, 255);
-	background: rgba(255, 255, 255, 0.05);
-	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FFFFFF, endColorstr=#19FFFFFF);
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr=#19FFFFFF, endColorstr=#19FFFFFF)";
+	background-color:#1a1a1a;
 	margin:0 5px 0 0;
 	-moz-border-radius: 4px;
 	border-radius: 4px;
 	padding:2px 5px 2px 5px;
 	color:#ffe27f;
+	/*
+	filter:alpha(opacity=1);
+	-moz-opacity:0.05;
+	-khtml-opacity:0.05;
+	opacity:0.05;
+	*/
 }
 
 
 #main-image-wrap #fb-container a.button:hover {
-	background: rgba(255, 255, 255, 0.1);
+	background-color:#2a2a2a;
 }
 
 .shadow {
@@ -487,6 +490,32 @@ ul.thumbs li img {
 	border-color:#606060;
 }
 
+#flickr_badge_wrapper {padding:20px 0 0 0;}
+.flickr_badge_image {margin:0 15px 15px 0px;float:left;}
+.flickr_badge_image img {border: 1px solid black !important;}
+#flickr_badge_source {margin:0 10px 0 10px;}
+#flickr_badge_icon {float:left; margin-right:5px;}
+#flickr_www {display:block; padding:0 10px 0 10px !important; font: 11px Arial, Helvetica, Sans serif !important; color:#3993ff !important;}
+
+#flickr_badge_uber_wrapper a:link, #flickr_badge_uber_wrapper a:active, #flickr_badge_uber_wrapper a:visited {
+	display:block;
+	width:70px;
+	height:68px;
+	overflow: hidden;
+	border:3px solid #2a2a2a;
+	-moz-border-radius:3px 3px 3px 3px;
+	border-radius: 3px;
+	-moz-box-shadow:0 1px 4px #000000;
+	-webkit-box-shadow: 0px 1px 4px #000;
+	box-shadow: 0px 1px 4px #000;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000');
+}
+
+#flickr_badge_uber_wrapper a:hover {
+	border-color:#606060;
+}
+
 .footer-twitter-container {
 	width:273px;
 	margin:5px 0 10px 0;
@@ -496,6 +525,7 @@ ul.thumbs li img {
 	background: url(/images/footer_twitter_top.png) no-repeat;
 	padding:8px 12px 8px 12px;
 	color:#4f4f4f;
+	line-height:14px;
 }
 
 .footer-twitter-date {
@@ -517,7 +547,7 @@ ul.thumbs li img {
 	color:#2f2f2f;
 	border-top:1px solid #292929;
 	padding:10px 0 10px 0;
-	margin:25px 0 0 0;
+	margin:20px 0 0 0;
 }
 
 #footer-container #copyright span {

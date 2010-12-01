@@ -1,6 +1,6 @@
 <div id="contactheader">
 
-<%= image_tag 'contact_rightinfo.png', :style => 'float:right;margin:0 0 0 50;' %>
+<%= image_tag 'contact_rightinfo.png', :style => 'float:right;margin:-15px 20px 0 0;' %>
 
 
 <%= form_for @contact do |form| %>
@@ -41,7 +41,7 @@
       <%= form.text_area :comments, :rows => '50', :cols => '40' %>
     </td>
   </tr>
-  <tr><td colspan="2"><%= image_tag "inset_1px.png", :height => "2", :width => "480", :style => 'padding:15px 0 15px 0;' %></td></tr>
+  <tr><td colspan="2"><%= image_tag "inset_1px.png", :height => "2", :width => "480", :style => 'padding:20px 0 15px 0;' %></td></tr>
   <tr><td align="right" colspan="2"><%= image_submit_tag "button_submit.png" %></td></tr>
   </table>
 <% end %>
