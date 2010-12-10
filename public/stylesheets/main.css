@@ -191,7 +191,7 @@ h4 {
 
 #event-name-container {
 	text-align:center;
-	margin:-70px 0 0 0;
+	margin:18px 0 0 -30px;
 	color:#fff;
 	position: relative;
 	width:960px;
@@ -1121,3 +1121,111 @@ ul.thumbs li img {
 	font-style: normal;
 }
 
+
+/*----------- Slider Styles --------------*/
+
+h1 {
+	font-size:20px;
+	margin-bottom:20px; 
+}
+
+#wrap {
+	margin:10px auto;
+	width:900px; 
+}
+
+#list {
+	background:url("/images/slider_bg.png") no-repeat scroll 0 0 transparent;
+	height:175px;
+	padding:70px 30px 50px;
+	width:900px;
+	position: relative;
+}
+
+.slider {
+	float:left;
+	left: -5000px;
+	position:relative; 
+	visibility:hidden;
+}
+	
+.slider ul {
+	height:100px;
+	width:600px; 
+}
+
+.slider ul li {
+	padding:0 12px 0 8px;
+}
+
+.slider ul li img {
+	cursor:pointer;
+	width:200px;
+	height:133px;
+	border:3px solid #606060;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	-moz-box-shadow: 0px 1px 4px #000;
+	-webkit-box-shadow: 0px 1px 4px #000;
+	box-shadow: 0px 1px 4px #000;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000')";
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=90, Color='#000000');	
+}
+
+.prev {
+	cursor:pointer;
+    position: absolute;
+    top: 120px;
+    left: 5px;
+    width: 32px;
+    height: 40px;
+    cursor: pointer;
+    background: transparent url(/images/arrow_orange_left.png) no-repeat 0 -49px;
+}
+
+.prev:hover {
+	background-position:0 0;
+}
+
+.next {
+	cursor:pointer;
+    position: absolute;
+    top: 120px;
+    right: 0px;
+    width: 32px;
+    height: 40px;
+    cursor: pointer;
+    background: transparent url(/images/arrow_orange_right.png) no-repeat 0 -49px;
+}
+
+.next:hover {
+	background-position:0 0;
+}
+
+.caption-top, .caption-bottom {
+	background: #000000;
+	color: #ffffff; 
+	cursor:default;
+	padding:2px; 
+	font-size:11px;   
+	text-align:center;
+}
+
+.caption-top {
+	border-width:0px;
+}
+
+.caption-bottom {
+	border-width:0px;
+}
+
+.caption a, .caption a {
+	background:#000;
+	border:none; 
+	text-decoration:none;  
+	padding:2px;
+}
+
+.caption a:hover, .caption a:hover {
+	background:#202020;
+}
