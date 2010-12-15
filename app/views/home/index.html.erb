@@ -12,7 +12,7 @@ It was popularised in the 1960s with the release of Letraset sheets containing L
 
 
 
-<div id="video"><object width="615" height="370"><param name="movie" value="http://www.youtube.com/v/e4i-yZAj4m4?fs=1&amp;hl=en_US&amp;color1=0xe1600f&amp;color2=0xfebd01"></param><param name="allowFullScreen" value="true"></param><param name="allowscriptaccess" value="always"></param><embed src="http://www.youtube.com/v/e4i-yZAj4m4?fs=1&amp;hl=en_US&amp;color1=0xe1600f&amp;color2=0xfebd01" type="application/x-shockwave-flash" allowscriptaccess="always" allowfullscreen="true" width="615" height="370"></embed></object></div>
+<div id="video"><iframe src="http://player.vimeo.com/video/17504486?title=0&amp;byline=0&amp;portrait=0&amp;autoplay=1" width="615" height="370" frameborder="0"></iframe></div>
 
 	<div id="splat-1"></div>
 	<div id="splat-2"></div>
@@ -40,7 +40,7 @@ It was popularised in the 1960s with the release of Letraset sheets containing L
 		<div class="slider">
 			<ul>
 				<li>
-					<a href="#" title="Title 1"><img src="/images/carousel/IMG_0039.jpg" alt="Title 1" class="captify" /></a>
+					<a href="#" title="Evan's Birthday - 1/10/2010"><img src="/images/carousel/IMG_0039.jpg" alt="Evan's Birthday - 1/10/2010" class="captify" /></a>
 				</li>
 				<li>
 					<a href="#" title="Title 2"><img src="/images/carousel/IMG_0039.jpg" alt="Title 2" class="captify" /></a>
@@ -71,36 +71,13 @@ It was popularised in the 1960s with the release of Letraset sheets containing L
 	
 	<div id="event-name-container">
 		<div id="event-name-arrow">&nbsp;</div>
-		<span id="event-name-1"><span id="event-name-2">Somebody's Birthday <span>- July 2nd, 2010</span></span></span>
+		<span id="event-name-1"><span id="event-name-2">Click Pictures to View Album</span></span>
 	</div>
 	
 
 	
 </div>
 
-
-
-
-
-
-<%= content_for(:javascripts) do %>
-  <%= javascript_include_tag 'jquery.jcarousel.min.js' %>
-<% end %>
-
-<%= content_for(:stylesheets) do %>
-  <%= stylesheet_link_tag 'skin' %>
-<% end %>
-
-<div id="home-slider">
-
-<ul id="mycarousel" class="jcarousel-skin-tango">
-  <% @images.each do |image| %>
-    <li><%= image_tag image %></li>
-  <% end %>
-</ul>
-
-
-</div>
 
 
 </div>
