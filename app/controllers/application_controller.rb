@@ -24,4 +24,14 @@ class ApplicationController < ActionController::Base
   end
 
   helper_method :recent_tweets
+
+  def front_page_photos
+    Rails.cache.read('front_page_photos') or begin
+      front_page_photos = FrontPagePhoto.all
+      Rails.cache.write('front_page_photos', front_page_photos, :expires_in => 1.hour)
+      front_page_photos
+    end
+  end
+
+  helper_method :front_page_photos
 end

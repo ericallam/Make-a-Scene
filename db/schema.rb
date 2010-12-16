@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101201025132) do
+ActiveRecord::Schema.define(:version => 20101216000815) do
 
   create_table "admin_users", :force => true do |t|
     t.string   "first_name",       :default => "",    :null => false
@@ -25,24 +25,6 @@ ActiveRecord::Schema.define(:version => 20101201025132) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  create_table "admins", :force => true do |t|
-    t.string   "email",                             :default => "", :null => false
-    t.string   "encrypted_password", :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                     :default => "", :null => false
-    t.integer  "failed_attempts",                   :default => 0
-    t.string   "unlock_token"
-    t.datetime "locked_at"
-    t.integer  "sign_in_count",                     :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "admins", ["email"], :name => "index_admins_on_email", :unique => true
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
@@ -66,6 +48,14 @@ ActiveRecord::Schema.define(:version => 20101201025132) do
     t.string   "permalink"
     t.date     "occurred_on"
     t.boolean  "already_watermarked", :default => false
+  end
+
+  create_table "front_page_photos", :force => true do |t|
+    t.integer  "event_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "photo_shares", :force => true do |t|

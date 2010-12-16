@@ -23,6 +23,7 @@ class Photo < ActiveRecord::Base
     }
   }, :convert_options => {:all => "-strip"}
 
+
   # small = width: 100px, max-height: 150
   # big = width: 325px; max-height: 490 
   #
@@ -34,6 +35,13 @@ class Photo < ActiveRecord::Base
     else
       [:watermark]
     end
+  end
+  
+  def to_front_page_photo
+    front_page_photo = FrontPagePhoto.new
+    front_page_photo.event = self.event
+    front_page_photo.image = self.image.to_file(:big)
+    front_page_photo.save
   end
   
 end

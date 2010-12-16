@@ -22,64 +22,38 @@ It was popularised in the 1960s with the release of Letraset sheets containing L
 <div style="clear:both;"></div>
 
 <ul id="home-events">
-	<li>Birthdays</li>
-	<li>Corporate Events</li>
-	<li>Weddings</li>
-	<li>Holiday Parties</li>
-	<li>Charity Events</li>
-	<li>Grand Openings</li>
-	<li>Reunions</li>
-	<li>We Supply Props!</li>
+  <li>Birthdays</li>
+  <li>Corporate Events</li>
+  <li>Weddings</li>
+  <li>Holiday Parties</li>
+  <li>Charity Events</li>
+  <li>Grand Openings</li>
+  <li>Reunions</li>
+  <li>We Supply Props!</li>
 </ul>
 
 
 
 <div id="list">
-	<div class="prev"></div>
-			
-		<div class="slider">
-			<ul>
-				<li>
-					<a href="#" title="Evan's Birthday - 1/10/2010"><img src="/images/carousel/IMG_0039.jpg" alt="Evan's Birthday - 1/10/2010" class="captify" /></a>
-				</li>
-				<li>
-					<a href="#" title="Title 2"><img src="/images/carousel/IMG_0039.jpg" alt="Title 2" class="captify" /></a>
-				</li>
-				<li>
-					<a href="#" title="Title 3"><img src="/images/carousel/IMG_0039.jpg" alt="Title 3" class="captify" /></a>
-				</li>
-				<li>
-					<a href="#" title="Title 4"><img src="/images/carousel/IMG_0039.jpg" alt="Title 4" class="captify" /></a>
-				</li>
-				<li>
-					<a href="#" title="Title 5"><img src="/images/carousel/IMG_0039.jpg" alt="Title 5" class="captify" /></a>
-				</li>
-				<li>
-					<a href="#" title="Title 6"><img src="/images/carousel/IMG_0039.jpg" alt="Title 6" class="captify" /></a>
-				</li>
-				<li>
-					<a href="#" title="Title 7"><img src="/images/carousel/IMG_0039.jpg" alt="Title 7" class="captify" /></a>
-				</li>
-				<li>
-					<a href="#" title="Title 8"><img src="/images/carousel/IMG_0039.jpg" alt="Title 8" class="captify" /></a>
-				</li>   
-			</ul>
-		</div>
-	<div class="next"></div>
-	
-	<div style="clear:both;"></div>
-	
-	<div id="event-name-container">
-		<div id="event-name-arrow">&nbsp;</div>
-		<span id="event-name-1"><span id="event-name-2">Click Pictures to View Album</span></span>
-	</div>
-	
-
-	
-</div>
-
-
-
+  <div class="prev"></div>
+    <div class="slider">
+      <ul>
+        <% front_page_photos.each do |photo| %>
+          <li>
+            <%= link_to image_tag(photo.image.url(:thumb)), event_path(photo.event), :title => photo.event.display_name, :class => 'captify', :alt => photo.event.display_name %>
+          
+        <% end %>
+      </ul>
+    </div>
+    <div class="next"></div>
+      
+    <div style="clear:both;"></div>
+      
+    <div id="event-name-container">
+      <div id="event-name-arrow">&nbsp;</div>
+      <span id="event-name-1"><span id="event-name-2">Click Pictures to View Album</span></span>
+    </div>
+  </div>
 </div>
 
 <%= content_for(:inline_js) do %>

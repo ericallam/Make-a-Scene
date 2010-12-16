@@ -26,6 +26,10 @@ class Event < ActiveRecord::Base
   def cover_photo
     @cover_photo ||= photos.cover_photo.first || photos.first
   end
+
+  def display_name
+    "#{self.name} / #{self.occurred_on.to_s(:small)}"
+  end
   
   private
   
