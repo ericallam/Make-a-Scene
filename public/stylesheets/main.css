@@ -79,7 +79,8 @@ small {
 }
 
 p {
-	line-height: 16px;
+	line-height: 18px;
+	font-family:"Lucida Sans Unicode","Lucida Grande";
 }
 
 .special-link {
