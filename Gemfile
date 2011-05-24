@@ -29,3 +29,11 @@ group :test do
   gem 'shoulda'
 end
 
+group :staging, :production do
+  gem 'rack-canonical-host'
+end
+
+group :development do
+  gem 'heroku'
+end
+
